@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SBS Academy - Sardar Bhagat Singh Academy, a premier CBSE affiliated school in Gorakhpur, UP">
+    <title>SBS Academy - Sardar Bhagat Singh Academy | CBSE School Gorakhpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5BA3D8;
+            --primary-dark: #4A8FC7;
+            --secondary: #87CEEB;
+            --accent: #B0E0E6;
+            --accent-dark: #ADD8E6;
+            --green: #90D5E3;
+            --blue: #6CB4EE;
+            --text-dark: #2C3E50;
+            --text-light: #5A7FA8;
+            --bg-light: #F0F8FF;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240,248,255,0.85);
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 50%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(91,163,216,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .school-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+
+        .school-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .school-info span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background-color: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        nav a:active {
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 0;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(91,163,216,0.75) 0%, rgba(135,206,235,0.75) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: var(--white);
+        }
+
+        .content-section {
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .content-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #intro.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop');
+        }
+
+        #about.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?w=1920&h=1080&fit=crop');
+        }
+
+        #admission.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1920&h=1080&fit=crop');
+        }
+
+        #gallery.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1920&h=1080&fit=crop');
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(91,163,216,0.85) 0%, rgba(135,206,235,0.85) 100%),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop') center/cover;
+            border-radius: 0;
+            position: relative;
+            color: white;
+        }
+
+        .welcome-section h2,
+        .welcome-section h4,
+        .welcome-section p {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .welcome-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2rem;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .welcome-image-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(91,163,216,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .welcome-image-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(91,163,216,0.3);
+        }
+
+        .welcome-image-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .intro-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .intro-image-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(91,163,216,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(91,163,216,0.3);
+        }
+
+        .intro-image-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        main h2 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        main h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 40px 0 25px 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        main h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 60%;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            border-radius: 10px;
+        }
+
+        main h4 {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        main > section p {
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(176,224,230,0.9) 0%, rgba(135,206,235,0.9) 100%),
+                        url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=600&fit=crop') center/cover;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(91,163,216,0.25);
+            border: 3px solid rgba(255,255,255,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box p {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.15rem;
+            text-align: left;
+        }
+
+        /* Content with Image */
+        .content-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .content-with-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 0;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 3px solid transparent;
+        }
+
+        .feature-card:nth-child(1) {
+            border-color: var(--primary);
+        }
+
+        .feature-card:nth-child(2) {
+            border-color: var(--blue);
+        }
+
+        .feature-card:nth-child(3) {
+            border-color: var(--secondary);
+        }
+
+        .feature-card:nth-child(4) {
+            border-color: var(--accent);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .feature-card-content {
+            padding: 25px 20px;
+        }
+
+        .feature-card h4 {
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Admission Images */
+        .admission-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .admission-image-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .admission-image-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .admission-image-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        hr {
+            border: none;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--blue), var(--secondary));
+            margin: 60px 0;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, rgba(74,127,168,0.95) 0%, rgba(74,143,199,0.95) 100%),
+                        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop') center/cover;
+            color: white;
+            padding: 60px 20px 30px 20px;
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74,127,168,0.85) 0%, rgba(74,143,199,0.85) 100%);
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer div {
+            padding: 15px;
+        }
+
+        footer h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px 0;
+        }
+
+        footer a:hover {
+            color: white;
+            transform: translateX(5px);
+            padding-left: 10px;
+        }
+
+        .contact-info {
+            line-height: 2.2;
+        }
+
+        .contact-info strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Button Styles */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 6px 20px rgba(91,163,216,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(91,163,216,0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .school-info {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .school-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .school-info {
+                font-size: 0.75rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-section {
+                height: 350px;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 40px 25px;
+            }
+
+            .welcome-section {
+                padding: 50px 25px;
+            }
+
+            main h2 {
+                font-size: 2rem;
+            }
+
+            main h3 {
+                font-size: 1.6rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-with-image {
+                grid-template-columns: 1fr;
+            }
+
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .admission-images {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-images {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                padding: 40px 15px 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .content-with-image img {
+                height: 250px;
+            }
+
+            main h2 {
+                font-size: 1.8rem;
+            }
+
+            main h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Accessibility */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--blue);
+            outline-offset: 3px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card:hover img {
+            animation: float 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                <div>
+        <h1>SBS Academy</h1>
+                    <p class="school-subtitle">(Sardar Bhagat Singh Academy)</p>
+                </div>
+                <div class="school-info">
+                    <span>10+2, Affiliated to C.B.S.E., India</span>
+                    <span>Affiliation No: 123456 | School No: 70425</span>
+                    <span>📞 8977656553 | ✉ sbsacademy1904@yahoo.com</span>
+                </div>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="introduction.html" target="_blank">Introduction</a>
+                <div class="nav-dropdown" style="display:inline-block; position:relative;">
+                    <a href="admission.html" style="position:relative; z-index:1;">Admission</a>
+                    <select 
+                        style="
+                            display:none;
+                            position:absolute; 
+                            left:0; 
+                            top:100%;
+                            background:white;
+                            border:1px solid #ccc;
+                            border-radius:4px;
+                            min-width:170px;
+                            font-size:1rem;
+                            z-index:10;
+                            box-shadow: 0 4px 12px rgba(40,80,120,0.12);
+                        " 
+                        onchange="if(this.value) window.open(this.value, '_blank');"
+                        aria-label="Admission options"
+                    >
+                        <option value="" disabled selected>See Options</option>
+                        <option value="admissionprocess.html"> Admission procedure</option>
+                        <option value="feestructure.html">Fee Structure</option>
+                    </select>
+                </div>
+                <script>
+                  // Only handle when script is included in same file, basic hover for dropdown reveal
+                  (function() {
+                    var wrapper = document.querySelector('.nav-dropdown');
+                    if (!wrapper) return;
+                    var select = wrapper.querySelector('select');
+                    wrapper.addEventListener('mouseenter', function() {
+                        select.style.display = 'block';
+                    });
+                    wrapper.addEventListener('mouseleave', function() {
+                        select.style.display = 'none';
+                        select.selectedIndex = 0;
+                    });
+                  })();
+                </script>
+                <a href="#examination">Examination</a>
+                <a href="about.html" target="_blank">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="parentsportal.html" target="_blank">Parent's Portal</a>
+                <a href="#cbse">CBSE Info</a>
+                <a href="#staff">Staff</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <img src="https://dpsmohanapurgkpedu.in/images/photogallery/i3.JPG" alt="SBS Academy School Building" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h2>Welcome to SBS Academy</h2>
+                    <p>Pokhra Tola, Gaunar Khas, Chauri Chaura, Gorakhpur-273201 (UP)</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="home" class="content-section welcome-section">
+            <h2>🌟 Welcome to SBS Academy 🌟</h2>
+            <h4>Where Learning Meets Excellence</h4>
+            <p class="welcome-text">At SBS Academy, we believe in nurturing young minds with love, care, and the best educational practices. 
+                Our vibrant learning environment inspires students to explore, discover, and achieve their dreams.</p>
+            <div class="welcome-images">
+                <div class="welcome-image-card">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop" alt="Happy students at school">
+                </div>
+                <div class="welcome-image-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop" alt="Students in classroom learning together">
+                </div>
+                <div class="welcome-image-card">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" alt="School playground and outdoor activities">
+                </div>
+            </div>
+        </section>
+
+        <section id="intro" class="content-section">
+            <h3>The School Preamble</h3>
+            <div class="highlight-box">
+                <p>SBS Academy stands as a beacon of educational excellence, dedicated to nurturing young minds and preparing them for the challenges of tomorrow. Founded on the principles of integrity, innovation, and inclusivity, our institution strives to create a holistic learning environment where every student can discover and develop their unique potential.</p>
+            </div>
+            <div class="content-with-image">
+                <div>
+                    <p>At SBS Academy, we believe that education extends beyond textbooks and classrooms. Our mission is to foster critical thinking, creativity, and character development in our students, ensuring they grow into responsible citizens and future leaders. With a rich legacy of academic achievement and a commitment to continuous improvement, we provide a comprehensive educational experience that balances academic rigor with extracurricular activities.</p>
+                    <p>Our curriculum, aligned with the Central Board of Secondary Education (CBSE), is designed to promote intellectual curiosity, scientific temper, and ethical values. We emphasize experiential learning, collaborative projects, and real-world applications, ensuring that our students are not just well-educated, but well-prepared for life beyond school.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop" alt="Students in classroom learning together">
+            </div>
+            <p>The school community, comprising dedicated educators, supportive parents, and enthusiastic students, works together to create an atmosphere of mutual respect, shared responsibility, and collective growth. We celebrate diversity, encourage open dialogue, and maintain the highest standards of discipline and conduct.</p>
+            <div class="intro-images-grid">
+                <div class="intro-image-card">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" alt="Beautiful school campus">
+                </div>
+                <div class="intro-image-card">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop" alt="Students in school garden">
+                </div>
+                <div class="intro-image-card">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=400&fit=crop" alt="School building exterior">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h3>About Our School</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=300&fit=crop" alt="Academic Excellence - Students studying">
+                    <div class="feature-card-content">
+                        <h4>📚 Academic Excellence</h4>
+                        <p>Comprehensive CBSE curriculum with focus on conceptual understanding and practical application</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop" alt="Experienced Faculty - Teachers collaborating">
+                    <div class="feature-card-content">
+                        <h4>👩‍🏫 Experienced Faculty</h4>
+                        <p>Dedicated and qualified teachers committed to student success and holistic development</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop" alt="Modern Infrastructure - School building">
+                    <div class="feature-card-content">
+                        <h4>🏫 Modern Infrastructure</h4>
+                        <p>Well-equipped classrooms, laboratories, library, and sports facilities for comprehensive growth</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Holistic Development - Sports activities">
+                    <div class="feature-card-content">
+                        <h4>⚽ Holistic Development</h4>
+                        <p>Balance of academics, sports, arts, and character building for overall personality development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admission" class="content-section">
+            <h3>Admission Information</h3>
+            <p>The admission process for the upcoming academic session is now open! We welcome applications from students seeking quality education in a nurturing and challenging environment. Our admission criteria focus on academic potential, character, and alignment with the school's values.</p>
+            <div class="admission-images">
+                <div class="admission-image-card">
+                    <img src="https://images.unsplash.com/photo-1529390079861-9de563177a48?w=400&h=300&fit=crop" alt="School admission process">
+                </div>
+                <div class="admission-image-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop" alt="Parents meeting with school staff">
+                </div>
+                <div class="admission-image-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop" alt="Orientation session for new students">
+                </div>
+            </div>
+            <p>For detailed information about admission procedures, eligibility criteria, fee structure, and required documents, please visit the school office during working hours or contact our admission cell. We conduct orientation sessions for parents and students to help them understand our educational philosophy and expectations.</p>
+            <a href="#contact" class="cta-button">Apply for Admission</a>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <h3>School Gallery</h3>
+            <p class="gallery-intro">Take a glimpse into the vibrant life at SBS Academy through our photo gallery showcasing various activities, events, and facilities.</p>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=300&fit=crop" alt="School science laboratory">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=300&fit=crop" alt="School library">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400&h=300&fit=crop" alt="Students in computer lab">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop" alt="School sports day">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop" alt="Annual day celebration">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop" alt="School assembly">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Students playing sports">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1529390079861-9de563177a48?w=400&h=300&fit=crop" alt="Art and craft activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" alt="Students learning together">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop" alt="School garden and nature">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop" alt="School facilities">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer id="contact">
+        <div>
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <p><strong>Address:</strong><br>
+                SBS Academy<br>
+                Pokhra Tola, Gaunar Khas<br>
+                P.O: Gaunar, Chauri Chaura<br>
+                Gorakhpur-273201 (UP), India</p>
+                <p><strong>Phone:</strong> 8786767676</p>
+                <p><strong>Email:</strong> sbsacademy1904@yahoo.com</p>
+            </div>
+        </div>
+        <div>
+            <h3>Useful Links</h3>
+            <ul class="footer-links">
+                <li><a href="https://www.cbse.gov.in/cbsenew/cbse.html" target="_blank" rel="noopener noreferrer">CBSE Official Website</a></li>
+                <li><a href="https://results.cbse.nic.in/" target="_blank" rel="noopener noreferrer">CBSE Results Portal</a></li>
+                <li><a href="https://www.cbse.gov.in/examinations.html" target="_blank" rel="noopener noreferrer">CBSE Examinations</a></li>
+                <li><a href="https://cbseacademic.nic.in/" target="_blank" rel="noopener noreferrer">CBSE Academic</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Rules and Regulations</h3>
+            <ul class="footer-links">
+                <li><a href="#rules">Rules and Discipline</a></li>
+                <li><a href="#strength">School Strength</a></li>
+                <li><a href="#code">Code of Conduct</a></li>
+                <li><a href="#uniform">Uniform Policy</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#prospectus">Prospectus</a></li>
+                <li><a href="#awards">Awards and Medals</a></li>
+                <li><a href="#events">School Events</a></li>
+                <li><a href="#gallery">Photo Gallery</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 SBS Academy (Sardar Bhagat Singh Academy). All rights reserved.</p>
+            <p>Affiliated to CBSE, New Delhi | Est. 2019</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SBS Academy Parent Portal Dashboard. Access online classes, e-learning videos, school work, fee details, attendance, and more.">
+    <title>Portal Home - SBS Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5BA3D8;
+            --primary-dark: #4A8FC7;
+            --secondary: #87CEEB;
+            --accent: #B0E0E6;
+            --accent-dark: #ADD8E6;
+            --green: #90D5E3;
+            --blue: #6CB4EE;
+            --text-dark: #2C3E50;
+            --text-light: #5A7FA8;
+            --bg-light: #F0F8FF;
+            --white: #FFFFFF;
+            --shadow-soft: 0 12px 30px rgba(40, 80, 120, 0.12);
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240, 248, 255, 0.9);
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 50%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 20px 20px;
+            box-shadow: 0 4px 20px rgba(91, 163, 216, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        header::before {
+            top: -45%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        header::after {
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .school-subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+
+        .school-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            text-align: right;
+        }
+
+        .school-info span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        nav {
+            margin-top: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 11px 22px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto 60px;
+            padding: 0 20px 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(91, 163, 216, 0.18);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.97rem;
+            flex: 1;
+        }
+
+        .card a {
+            margin-top: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-dark);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-card {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .profile-card .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .profile-details h2 {
+            margin-bottom: 6px;
+            font-size: 1.8rem;
+        }
+
+        .profile-details span {
+            display: block;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .quick-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .quick-stat {
+            flex: 1 1 150px;
+            background: rgba(91, 163, 216, 0.12);
+            border-radius: 16px;
+            padding: 14px 18px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+        }
+
+        .section-heading span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            text-align: center;
+            padding: 45px 20px;
+            background: var(--text-dark);
+            color: white;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 16px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav a {
+                padding: 10px 18px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .quick-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                <div>
+                    <h1>SBS Academy</h1>
+                    <p class="school-subtitle">(Sardar Bhagat Singh Academy)</p>
+                </div>
+                <div class="school-info">
+                    <span>10+2, Affiliated to C.B.S.E., India</span>
+                    <span>Affiliation No: 123456 | School No: 70425</span>
+                    <span>📞 8977656553 | ✉ sbsacademy1904@yahoo.com</span>
+                </div>
+            </div>
+            <nav>
+                <a href="Portalhome.html">Dashboard</a>
+                <a href="parentsportal.html">Logout</a>
+                <a href="Feestructure.html">Fee Structure</a>
+                <a href="admissionprocess.html">Admissions</a>
+                <a href="about.html">About School</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-grid">
+            <div class="card profile-card">
+                <div class="avatar">AP</div>
+                <div class="profile-details">
+                    <h2>Ananya Pratap (Class VIII B)</h2>
+                    <span>Admission No: SBS2025/087</span>
+                    <span>Parent: Mr. & Mrs. Pratap | Contact: +91 9876543210</span>
+                    <div class="quick-stats">
+                        <div class="quick-stat">Attendance: 94%</div>
+                        <div class="quick-stat">Fees Paid: 75%</div>
+                        <div class="quick-stat">Assignments: 3 Pending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">
+            <h2>Learning & Academics</h2>
+            <span>Stay updated with online classes, e-learning library, and daily school work.</span>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Online Class</h3>
+                <p>Join today's live sessions for Mathematics (10:00 AM) and Science (12:30 PM). Link available 10 minutes prior.</p>
+                <a href="#">Join Session →</a>
+            </div>
+            <div class="card">
+                <h3>E-Learn Videos</h3>
+                <p>Explore curated video lessons aligned with the CBSE syllabus. New uploads every Monday and Thursday.</p>
+                <a href="#">Browse Library →</a>
+            </div>
+            <div class="card">
+                <h3>School Work</h3>
+                <p>Daily homework and worksheets for all subjects, plus project timelines and study planners.</p>
+                <a href="#">View Tasks →</a>
+            </div>
+            <div class="card">
+                <h3>Upload CW (Classwork)</h3>
+                <p>Submit scanned notebooks or digital worksheets for teacher review. Upload before 8:00 PM.</p>
+                <a href="#">Upload Now →</a>
+            </div>
+        </div>
+
+        <div class="section-heading">
+            <h2>Fees & Records</h2>
+            <span>Check dues, receipts, and attendance snapshots at a glance.</span>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Fee Details</h3>
+                <p>Quarterly dues summary with receipts and concession updates. Next installment due: 15 January 2025.</p>
+                <a href="#">View Statement →</a>
+            </div>
+            <div class="card">
+                <h3>Fee Payment</h3>
+                <p>Pay securely via NetBanking, UPI, or cards. Auto-reminders ensure you never miss a due date.</p>
+                <a href="#">Pay Now →</a>
+            </div>
+            <div class="card">
+                <h3>Attendance</h3>
+                <p>Track daily, monthly, and session-wise attendance. Receive instant alerts for absences.</p>
+                <a href="#">Attendance Log →</a>
+            </div>
+            <div class="card">
+                <h3>My Profile</h3>
+                <p>Update contact info, address, transport preference, and medical alerts in one place.</p>
+                <a href="#">Manage Profile →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sardar Bhagat Singh Academy | Pokhra Tola, Gaunar Khas, Chauri Chaura, Gorakhpur-273201 (UP)</p>
+        <p>© 2025 SBS Academy Parent Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+

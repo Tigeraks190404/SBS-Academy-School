@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction to SBS Academy - Sardar Bhagat Singh Academy, a premier CBSE affiliated school in Gorakhpur, UP">
+    <title>Introduction - SBS Academy | Sardar Bhagat Singh Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5BA3D8;
+            --primary-dark: #4A8FC7;
+            --secondary: #87CEEB;
+            --accent: #B0E0E6;
+            --accent-dark: #ADD8E6;
+            --green: #90D5E3;
+            --blue: #6CB4EE;
+            --text-dark: #2C3E50;
+            --text-light: #5A7FA8;
+            --bg-light: #F0F8FF;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240,248,255,0.85);
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 50%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 20px;
+            box-shadow: 0 4px 20px rgba(91,163,216,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .school-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+
+        .school-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .school-info span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(91,163,216,0.9) 0%, rgba(135,206,235,0.9) 100%),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=800&fit=crop') center/cover;
+            padding: 100px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-banner h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-banner p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .content-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #mission.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&h=1080&fit=crop');
+        }
+
+        #vision.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop');
+        }
+
+        #values.content-section::before {
+            background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1920&h=1080&fit=crop');
+        }
+
+        main h2 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        main h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 40px 0 25px 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        main h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 60%;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            border-radius: 10px;
+        }
+
+        main p {
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(91,163,216,0.25);
+            border: 3px solid rgba(255,255,255,0.6);
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .info-box p {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(91,163,216,0.15);
+            border: 3px solid var(--primary);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(91,163,216,0.25);
+        }
+
+        .value-card:nth-child(2) {
+            border-color: var(--blue);
+        }
+
+        .value-card:nth-child(3) {
+            border-color: var(--secondary);
+        }
+
+        .value-card:nth-child(4) {
+            border-color: var(--accent);
+        }
+
+        .value-card h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            text-align: center;
+            margin: 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-year {
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(91,163,216,0.3);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(91,163,216,0.15);
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        hr {
+            border: none;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--blue), var(--secondary));
+            margin: 60px 0;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, rgba(74,127,168,0.95) 0%, rgba(74,143,199,0.95) 100%),
+                        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop') center/cover;
+            color: white;
+            padding: 60px 20px 30px 20px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74,127,168,0.85) 0%, rgba(74,143,199,0.85) 100%);
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Button Styles */
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(91,163,216,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(91,163,216,0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-banner h2 {
+                font-size: 2rem;
+            }
+
+            .hero-banner p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 40px 25px;
+            }
+
+            main h2 {
+                font-size: 2rem;
+            }
+
+            main h3 {
+                font-size: 1.6rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-year {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                <div>
+                    <h1>SBS Academy</h1>
+                    <p class="school-subtitle">(Sardar Bhagat Singh Academy)</p>
+                </div>
+                <div class="school-info">
+                    <span>10+2, Affiliated to C.B.S.E., India</span>
+                    <span>Affiliation No: 123456 | School No: 70425</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <h2>Introduction to SBS Academy</h2>
+            <p>Building Future Leaders with Excellence, Integrity, and Innovation</p>
+        </section>
+
+        <section id="mission" class="content-section">
+            <a href="index.html" class="back-button">← Back to Home</a>
+            <h2>Our Mission</h2>
+            <div class="info-box">
+                <p>At SBS Academy, our mission is to provide a holistic, student-centered education that nurtures intellectual curiosity, fosters critical thinking, and develops well-rounded individuals who are prepared to excel in an ever-changing global society. We are committed to creating an inclusive learning environment where every student can discover their unique talents and achieve their fullest potential.</p>
+            </div>
+            <p>We believe that education is not merely about academic achievement, but about shaping character, instilling values, and preparing students to become responsible citizens and compassionate leaders. Our dedicated faculty works tirelessly to ensure that each student receives personalized attention and support throughout their educational journey.</p>
+            <p>Through a blend of rigorous academic programs, innovative teaching methodologies, and extensive extracurricular activities, we strive to develop students who are not only academically competent but also socially aware, emotionally intelligent, and ethically grounded.</p>
+        </section>
+
+        <hr>
+
+        <section id="vision" class="content-section">
+            <h2>Our Vision</h2>
+            <div class="info-box">
+                <h4>Envisioning Excellence</h4>
+                <p>SBS Academy envisions becoming a beacon of educational excellence that inspires students to dream big, think critically, and act with integrity. We aspire to be recognized as an institution that produces globally competitive individuals who contribute meaningfully to society while staying rooted in their cultural values.</p>
+            </div>
+            <p>Our vision extends beyond the classroom walls. We see our students as future innovators, entrepreneurs, scientists, artists, and leaders who will drive positive change in their communities and the world at large. We are committed to providing an educational experience that transcends traditional boundaries and opens doors to endless possibilities.</p>
+            <p>We envision a school community where diversity is celebrated, curiosity is encouraged, and excellence is the standard. Through continuous improvement and adaptation to evolving educational needs, we strive to maintain our position as a premier educational institution that prepares students for success in the 21st century.</p>
+        </section>
+
+        <hr>
+
+        <section id="values" class="content-section">
+            <h2>Our Core Values</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">The principles that guide everything we do at SBS Academy</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>✨ Excellence</h4>
+                    <p>We strive for excellence in all aspects of education, setting high standards and continuously working towards improvement.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🤝 Integrity</h4>
+                    <p>Honesty, transparency, and ethical behavior form the foundation of our institution and guide all our interactions.</p>
+                </div>
+                <div class="value-card">
+                    <h4>💡 Innovation</h4>
+                    <p>We embrace new ideas, technologies, and teaching methodologies to provide the best learning experience.</p>
+                </div>
+                <div class="value-card">
+                    <h4>❤️ Respect</h4>
+                    <p>We foster an environment of mutual respect, understanding, and appreciation for diverse perspectives and backgrounds.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🌱 Growth</h4>
+                    <p>We believe in continuous learning and personal development for both students and educators.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🤲 Service</h4>
+                    <p>We instill in our students the importance of giving back to the community and making a positive impact.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="content-section">
+            <h2>Our Journey</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">Milestones that shaped SBS Academy into what it is today</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h4>Foundation</h4>
+                        <p>SBS Academy was established with a vision to provide quality education in Gorakhpur. We started with a small group of dedicated educators and enthusiastic students.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h4>CBSE Affiliation</h4>
+                        <p>We received official CBSE affiliation, marking a significant milestone in our journey towards educational excellence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h4>Infrastructure Expansion</h4>
+                        <p>Expanded our facilities with modern laboratories, computer labs, and enhanced sports infrastructure to support holistic development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h4>Academic Excellence</h4>
+                        <p>Our students achieved outstanding results in CBSE examinations, establishing our reputation for academic rigor and excellence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h4>Recognition & Awards</h4>
+                        <p>Received recognition for excellence in education and student achievements in various fields including academics, sports, and arts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h4>Digital Transformation</h4>
+                        <p>Embraced technology with smart classrooms, digital learning platforms, and innovative teaching tools to enhance the learning experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Why Choose SBS Academy?</h2>
+            <div class="info-box">
+                <p>At SBS Academy, we understand that choosing the right school for your child is one of the most important decisions you'll make. Here's what sets us apart:</p>
+            </div>
+            <h3>Academic Excellence</h3>
+            <p>Our curriculum, aligned with CBSE standards, is designed to challenge students while providing them with the support they need to succeed. Our experienced faculty employs innovative teaching methods that make learning engaging and effective.</p>
+            
+            <h3>Holistic Development</h3>
+            <p>We believe education extends beyond academics. Our comprehensive program includes sports, arts, music, drama, and various clubs that help students discover and develop their talents while building confidence and social skills.</p>
+            
+            <h3>Modern Infrastructure</h3>
+            <p>Our state-of-the-art facilities include well-equipped science and computer laboratories, a comprehensive library, spacious classrooms, and excellent sports facilities that provide students with the resources they need to excel.</p>
+            
+            <h3>Experienced Faculty</h3>
+            <p>Our teachers are not just educators; they are mentors, guides, and role models. With years of experience and a passion for teaching, they are committed to helping every student reach their potential.</p>
+            
+            <h3>Safe & Nurturing Environment</h3>
+            <p>We prioritize the safety and well-being of our students. Our campus is secure, and we maintain a caring, supportive atmosphere where students feel valued and respected.</p>
+            
+            <h3>Strong Values</h3>
+            <p>We instill in our students the importance of integrity, respect, responsibility, and service to others, preparing them to be ethical leaders and responsible citizens.</p>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>SBS Academy</strong></p>
+            <p>Pokhra Tola, Gaunar Khas, Chauri Chaura, Gorakhpur-273201 (UP), India</p>
+            <p>📞 8977656553 | ✉ sbsacademy1904@yahoo.com</p>
+            <div class="copyright">
+                <p>&copy; 2024 SBS Academy (Sardar Bhagat Singh Academy). All rights reserved.</p>
+                <p>Affiliated to CBSE, New Delhi | Est. 2019</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

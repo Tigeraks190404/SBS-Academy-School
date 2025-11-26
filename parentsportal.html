@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Parent's Portal login for SBS Academy. Access student progress, fee receipts, announcements, and communication tools.">
+    <title>Parent's Portal Login - SBS Academy | Sardar Bhagat Singh Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5BA3D8;
+            --primary-dark: #4A8FC7;
+            --secondary: #87CEEB;
+            --accent: #B0E0E6;
+            --accent-dark: #ADD8E6;
+            --green: #90D5E3;
+            --blue: #6CB4EE;
+            --text-dark: #2C3E50;
+            --text-light: #5A7FA8;
+            --bg-light: #F0F8FF;
+            --white: #FFFFFF;
+            --shadow-soft: 0 12px 30px rgba(40, 80, 120, 0.12);
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&h=1080&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240, 248, 255, 0.88);
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 50%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 20px 20px;
+            box-shadow: 0 4px 20px rgba(91, 163, 216, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        header::before {
+            top: -45%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        header::after {
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .school-subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+
+        .school-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            text-align: right;
+        }
+
+        .school-info span {
+            display: block;
+            margin: 3px 0;
+        }
+
+        /* nav {
+            margin-top: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        } */
+
+        /* nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 11px 22px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        } */
+
+        /* nav a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        } */
+
+        .portal-wrapper {
+            max-width: 1200px;
+            margin: 60px auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .portal-info {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(91, 163, 216, 0.18);
+        }
+
+        .portal-info h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .portal-info p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 14px;
+        }
+
+        .info-points {
+            margin-top: 20px;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-points li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .info-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(91, 163, 216, 0.18);
+        }
+
+        .login-card h3 {
+            font-size: 1.8rem;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(91, 163, 216, 0.4);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 4px rgba(91, 163, 216, 0.15);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .back-button,
+        .login-button {
+            flex: 1 1 180px;
+            padding: 14px;
+            border-radius: 18px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+            min-width: 150px;
+        }
+
+        .back-button {
+            border: 2px solid var(--primary-dark);
+            background: transparent;
+            color: var(--primary-dark);
+            box-shadow: 0 8px 20px rgba(91, 163, 216, 0.1);
+        }
+
+        .back-button:hover {
+            background: rgba(91, 163, 216, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .login-button {
+            border: none;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 100%);
+            color: white;
+            box-shadow: 0 12px 30px rgba(91, 163, 216, 0.3);
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(91, 163, 216, 0.4);
+        }
+
+        .helper-links {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .helper-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .announcement-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(91, 163, 216, 0.95), rgba(108, 180, 238, 0.95));
+            color: white;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .announcement-card h4 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .announcement-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 12px;
+        }
+
+        .announcement-card li {
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .announcement-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .status-message {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .status-success {
+            display: block;
+            background: rgba(144, 213, 227, 0.35);
+            border: 1px solid rgba(108, 180, 238, 0.5);
+            color: var(--primary-dark);
+        }
+
+        .status-error {
+            display: block;
+            background: rgba(255, 99, 132, 0.12);
+            border: 1px solid rgba(255, 99, 132, 0.4);
+            color: #b30021;
+        }
+
+        footer {
+            text-align: center;
+            padding: 45px 20px;
+            background: var(--text-dark);
+            color: white;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 16px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            /* nav a {
+                padding: 10px 18px;
+            } */
+
+            .portal-wrapper {
+                margin: 40px auto;
+            }
+
+            .portal-info,
+            .login-card {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                <div>
+                    <h1>SBS Academy</h1>
+                    <p class="school-subtitle">(Sardar Bhagat Singh Academy)</p>
+                </div>
+                <div class="school-info">
+                    <span>10+2, Affiliated to C.B.S.E., India</span>
+                    <span>Affiliation No: 123456 | School No: 70425</span>
+                    <span>📞 8977656553 | ✉ sbsacademy1904@yahoo.com</span>
+                </div>
+            </div>
+            <!-- <nav>
+                <a href="index.html">Home</a>
+                <a href="introduction.html">Introduction</a>
+                <a href="admissionprocess.html">Admission Procedure</a>
+                <a href="Feestructure.html">Fee Structure</a>
+                <a href="about.html">About</a>
+            </nav> -->
+        </div>
+    </header>
+
+    <div class="portal-wrapper">
+        <div class="portal-info">
+            <h2>Parent's Portal</h2>
+            <p>Stay connected with your child's progress, attendance, fee receipts, and school communication from one secure dashboard.</p>
+            <ul class="info-points">
+                <li>Daily attendance and homework alerts</li>
+                <li>Term-wise report cards & academic insights</li>
+                <li>Fee payment receipts and reminders</li>
+                <li>PTM schedules, announcements, and circulars</li>
+            </ul>
+        </div>
+
+        <div class="login-card">
+            <h3>Secure Login</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="admissionNumber">Admission Number</label>
+                    <input type="text" id="admissionNumber" name="admissionNumber" placeholder="Enter Admission Number (e.g., SBS2025/087)" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back-button" onclick="window.location.href='index.html'">← Back</button>
+                    <button type="submit" class="login-button">Login to Portal</button>
+                </div>
+                <div id="statusMessage" class="status-message"></div>
+                <div class="helper-links">
+                    <a href="#">Forgot Admission Number?</a> &nbsp;|&nbsp; <a href="#">Reset Password</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="announcement-card">
+            <h4>Need Assistance?</h4>
+            <p>Our Parent Support Desk is available on all working days from 9:00 AM to 4:00 PM.</p>
+            <ul>
+                <li>Email: parentsupport@sbsacademy.edu</li>
+                <li>Phone: 8796543210 / WhatsApp: 9696969696</li>
+                <li>Visit: Admin Block, SBS Academy Campus</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sardar Bhagat Singh Academy | Pokhra Tola, Gaunar Khas, Chauri Chaura, Gorakhpur-273201 (UP)</p>
+        <p>© 2025 SBS Academy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            const API_BASE_URL = 'http://localhost:4000';
+            const form = document.getElementById('loginForm');
+            const statusMessage = document.getElementById('statusMessage');
+
+            function setStatus(type, message) {
+                statusMessage.className = 'status-message';
+                if (type === 'success') {
+                    statusMessage.classList.add('status-success');
+                } else if (type === 'error') {
+                    statusMessage.classList.add('status-error');
+                }
+                if (message) {
+                    statusMessage.textContent = message;
+                    statusMessage.style.display = 'block';
+                } else {
+                    statusMessage.style.display = 'none';
+                }
+            }
+
+            async function handleLogin(event) {
+                event.preventDefault();
+                const admissionNo = document.getElementById('admissionNumber').value.trim();
+                const password = document.getElementById('password').value;
+
+                if (!admissionNo || !password) {
+                    setStatus('error', 'Please enter both admission number and password.');
+                    return;
+                }
+
+                setStatus(null, '');
+                statusMessage.style.display = 'block';
+                statusMessage.textContent = 'Verifying credentials...';
+
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/login`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ admissionNo, password }),
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Unable to login.');
+                    }
+
+                    const data = await response.json();
+                    sessionStorage.setItem('sbsPortalToken', data.token);
+                    sessionStorage.setItem('sbsStudentProfile', JSON.stringify(data.student));
+                    sessionStorage.setItem('sbsStudentSessions', JSON.stringify(data.sessions));
+
+                    setStatus('success', 'Login successful! Redirecting to dashboard...');
+                    setTimeout(() => {
+                        window.location.href = 'Portalhome.html';
+                    }, 1200);
+                } catch (error) {
+                    setStatus('error', error.message);
+                }
+            }
+
+            form.addEventListener('submit', handleLogin);
+        })();
+    </script>
+</body>
+</html>
+
